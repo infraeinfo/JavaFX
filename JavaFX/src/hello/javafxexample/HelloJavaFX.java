@@ -11,10 +11,10 @@ import javafx.stage.Stage;
 public class HelloJavaFX extends Application
 {
 	@Override
-	public void start(Stage stage) throws Exception
+	public void start(Stage estagio) throws Exception
 	{
-		Button bt = new Button("Escreva HelloWorld");
-		bt.setOnAction(new EventHandler<ActionEvent>()
+		Button botao = new Button("Escreva Motherfucker");
+		botao.setOnAction(new EventHandler<ActionEvent>()
 		{
 			@Override
 			public void handle(ActionEvent arg0)
@@ -23,13 +23,13 @@ public class HelloJavaFX extends Application
 			}
 		});
 		
-		StackPane root = new StackPane();
-		Scene scene = new Scene(root, 300, 150);
-		root.getChildren().add(bt);
+		StackPane raiz = new StackPane();
+		Scene cena = new Scene(raiz, 300, 150);
+		raiz.getChildren().add(botao);
 		
-		stage.setTitle("Hello World in JavaFX");
-		stage.setScene(scene);
-		stage.show();
+		estagio.setTitle("J A V A");
+		estagio.setScene(cena);
+		estagio.show();
 	}
 	
 	public static void main(String []args)

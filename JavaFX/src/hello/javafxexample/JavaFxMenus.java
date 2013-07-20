@@ -17,35 +17,35 @@ import javafx.stage.Stage;
 
 public class JavaFxMenus extends Application
 {
-	private MenuBar buildMenuBarWithMenus(final ReadOnlyDoubleProperty menuWidthProperty)
+	private MenuBar construaMenucomBarras(final ReadOnlyDoubleProperty menuWidthProperty)
 	{
-		final MenuBar menuBar = new MenuBar();
+		final MenuBar barraMenu = new MenuBar();
 		//Parte do menu (File)
-		final Menu fileMenu = new Menu("Arquivo");
-		fileMenu.getItems().add(new MenuItem("Novo"));
-		fileMenu.getItems().add(new MenuItem("Abrir"));
-		fileMenu.getItems().add(new MenuItem("Salvar"));
-		fileMenu.getItems().add(new MenuItem("Salvar Como"));
-		fileMenu.getItems().add(new SeparatorMenuItem());
-		fileMenu.getItems().add(new MenuItem("Sair"));
-		menuBar.getMenus().add(fileMenu);
+		final Menu arquivoMenu = new Menu("Arquivo");
+		arquivoMenu.getItems().add(new MenuItem("Novo"));
+		arquivoMenu.getItems().add(new MenuItem("Abrir"));
+		arquivoMenu.getItems().add(new MenuItem("Salvar"));
+		arquivoMenu.getItems().add(new MenuItem("Salvar Como"));
+		arquivoMenu.getItems().add(new SeparatorMenuItem());
+		arquivoMenu.getItems().add(new MenuItem("Sair"));
+		barraMenu.getMenus().add(arquivoMenu);
 		
 		//Parte do menu chamado Exemplos
-		final Menu examplesMenu = new Menu("Exemplos");
-		examplesMenu.getItems().add(new MenuItem("Exemplo de Texto"));
-		examplesMenu.getItems().add(new MenuItem("Exemplo de Objetos"));
-		examplesMenu.getItems().add(new MenuItem("Exemplo de Animação"));
-		menuBar.getMenus().add(examplesMenu);
+		final Menu exemplosMenu = new Menu("Exemplos");
+		exemplosMenu.getItems().add(new MenuItem("Exemplo de Texto"));
+		exemplosMenu.getItems().add(new MenuItem("Exemplo de Objetos"));
+		exemplosMenu.getItems().add(new MenuItem("Exemplo de Animação"));
+		barraMenu.getMenus().add(exemplosMenu);
 		
 		//Parte do menu chamado Help
-		final Menu helpMenu = new Menu("Ajuda");
-		final MenuItem searchMenuItem = new MenuItem("Procurar...");
-		searchMenuItem.setDisable(true);
-		helpMenu.getItems().add(searchMenuItem);
+		final Menu menuAjuda = new Menu("Ajuda");
+		final MenuItem procuraMenuItem = new MenuItem("Procurar...");
+		procuraMenuItem.setDisable(true);
+		menuAjuda.getItems().add(procuraMenuItem);
 		final MenuItem onlineManualItem = new MenuItem("Manual Online");
 		onlineManualItem.setVisible(false);
-		helpMenu.getItems().add(onlineManualItem);
-		helpMenu.getItems().add(new SeparatorMenuItem());
+		menuAjuda.getItems().add(onlineManualItem);
+		menuAjuda.getItems().add(new SeparatorMenuItem());
 		final MenuItem aboutMenuItem =
 				MenuItemBuilder.create()
 					.text("Sobre")
@@ -58,23 +58,23 @@ public class JavaFxMenus extends Application
 					.accelerator(new KeyCodeCombination(
 							KeyCode.A, KeyCombination.CONTROL_DOWN))
 					.build();
-		helpMenu.getItems().add(aboutMenuItem);
-		menuBar.getMenus().add(helpMenu);
+		menuAjuda.getItems().add(aboutMenuItem);
+		barraMenu.getMenus().add(menuAjuda);
 		
-		menuBar.prefWidthProperty().bind(menuWidthProperty);
+		barraMenu.prefWidthProperty().bind(menuWidthProperty);
 		
-		return menuBar;
+		return barraMenu;
 	}
 	
-	public void start(final Stage stage)
+	public void start(final Stage estagio)
 	{
-		stage.setTitle("Criando Menus JavaFX");
-		final Group rootGroup = new Group();
-		final Scene scene = new Scene(rootGroup, 900, 600, Color.WHEAT);
-		final MenuBar menuBar = buildMenuBarWithMenus(stage.widthProperty());
-		rootGroup.getChildren().add(menuBar);
-		stage.setScene(scene);
-		stage.show();
+		estagio.setTitle("Criando Menus JavaFX");
+		final Group grupoRaiz = new Group();
+		final Scene cena = new Scene(grupoRaiz, 900, 600, Color.WHEAT);
+		final MenuBar menuBarra = construaMenucomBarras(estagio.widthProperty());
+		grupoRaiz.getChildren().add(menuBarra);
+		estagio.setScene(cena);
+		estagio.show();
 	}
 	
 	public static void main(final String[] arguments)
